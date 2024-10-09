@@ -5,11 +5,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+const authRoute = require('./routes/auth')
 const deliveriesRoutes = require('./routes/deliveries');
 const managersRoutes = require('./routes/managers');
 const driversRoutes = require('./routes/drivers');
 
 app.use(bodyParser.json());
+app.use('/auth', authRoute);
 app.use('/deliveries', deliveriesRoutes);
 app.use('/managers', managersRoutes);
 app.use('/drivers', driversRoutes);
@@ -26,10 +28,6 @@ app.get('/', async (req, res) => {
         res.status(500).send('Failed to list tables.');
     }
 });
-
-// Other routes
-app.get('/sign-up', (req, res) => res.send('Sign-up to be a manager'));
-app.get('/login', (req, res) => res.send('Please login to use the site'));
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
