@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
 
     let manager = managers.find((manager) => {
         return manager.firstName === firstName
-    });
+    }); //I shoud make a call to my db to check if manager is there
 
     if (!manager) {
         return res.status(422).json({

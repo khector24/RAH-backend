@@ -8,8 +8,11 @@ const {
     DeleteItemCommand,
     GetItemCommand,
     UpdateItemCommand,
-    ScanCommand
+    ScanCommand,
+    QueryCommand
 } = require("@aws-sdk/client-dynamodb");
+
+const { unmarshall } = require('@aws-sdk/util-dynamodb');
 
 // Create a reusable DynamoDB client
 const client = new DynamoDBClient({
@@ -61,6 +64,85 @@ async function getItem(tableName, key) {
         throw error;
     }
 }
+
+//First version
+// const getItemByName = async (tableName, username) => {
+//     const params = {
+//         TableName: tableName,
+//         Key: {
+//             'username': { S: username } // Update to search by username
+//         }
+//     };
+
+//     try {
+//         const data = await dynamoDB.getItem(params).promise();
+//         return data.Item ? AWS.DynamoDB.Converter.unmarshall(data.Item) : null; // Use DynamoDB Converter to unmarshall data
+//     } catch (error) {
+//         console.error('Error fetching item by username:', error);
+//         throw new Error('Could not fetch item.');
+//     }
+// };
+
+//Fourth version 
+// const getItemByName = async (tableName, username) => {
+//     const params = {
+//         TableName: tableName,
+//         Key: {
+//             'username': { S: username } // Update to search by username
+//         }
+//     };
+
+//     try {
+//         const command = new GetItemCommand(params); // Use the correct DynamoDB command
+//         const data = await client.send(command); // Use the instantiated client
+//         return data.Item ? AWS.DynamoDB.Converter.unmarshall(data.Item) : null; // Use DynamoDB Converter to unmarshall data
+//     } catch (error) {
+//         console.error('Error fetching item by username:', error);
+//         throw new Error('Could not fetch item.');
+//     }
+// };
+
+
+// const getItemByName = async (tableName, username) => {
+//     const params = {
+//         TableName: tableName,
+//         Key: {
+//             'username': { S: username } // Ensure the key is defined correctly
+//         }
+//     };
+
+//     try {
+//         const command = new GetItemCommand(params);
+//         const data = await client.send(command);
+//         return data.Item ? AWS.DynamoDB.Converter.unmarshall(data.Item) : null; // Ensure you're using the correct converter
+//     } catch (error) {
+//         console.error('Error fetching item by username:', error);
+//         throw new Error('Could not fetch item.');
+//     }
+// };
+
+//Third Version
+const getItemByName = async (tableName, username) => {
+    const params = {
+        TableName: tableName,
+        IndexName: 'username-id-index', // Specify the GSI name
+        KeyConditionExpression: 'username = :username', // Use a key condition expression
+        ExpressionAttributeValues: {
+            ':username': { S: username } // Value to match for username
+        }
+    };
+
+    try {
+        const command = new QueryCommand(params);
+        const data = await client.send(command);
+        return data.Items.length > 0 ? unmarshall(data.Items[0]) : null; // Use the unmarshall method from @aws-sdk/util-dynamodb
+    } catch (error) {
+        console.error('Error fetching item by username:', error);
+        throw new Error('Could not fetch item.');
+    }
+};
+
+
 
 // Function to update an item in a table
 async function updateItem(tableName, key, updatedAttributes) {
@@ -144,7 +226,8 @@ module.exports = {
     getItem,
     updateItem,
     deleteItem,
-    scanTable
+    scanTable,
+    getItemByName
 };
 
 
