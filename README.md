@@ -54,3 +54,23 @@ This API is intended for use with a private internal front-end system. The follo
 This API uses JWT for authentication. Include the token in the `Authorization` header like so:
 ```makefile
 Authorization: Bearer <your_token>
+
+### Error Handling
+
+The API provides clear error messages and HTTP status codes:
+
+- **400**: Validation issues
+- **401**: Unauthorized access
+- **404**: Resource not found
+- **500**: Internal server error
+
+### Notes
+
+- This back-end will connect to a front-end system for internal use only.
+- AWS DynamoDB is used for all data storage.
+- Passwords are hashed using bcrypt for security.
+
+### License
+
+This project is private and internal to Rainbow Ace Hardware.
+
