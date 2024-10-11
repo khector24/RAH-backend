@@ -65,62 +65,7 @@ async function getItem(tableName, key) {
     }
 }
 
-//First version
-// const getItemByName = async (tableName, username) => {
-//     const params = {
-//         TableName: tableName,
-//         Key: {
-//             'username': { S: username } // Update to search by username
-//         }
-//     };
-
-//     try {
-//         const data = await dynamoDB.getItem(params).promise();
-//         return data.Item ? AWS.DynamoDB.Converter.unmarshall(data.Item) : null; // Use DynamoDB Converter to unmarshall data
-//     } catch (error) {
-//         console.error('Error fetching item by username:', error);
-//         throw new Error('Could not fetch item.');
-//     }
-// };
-
-//Fourth version 
-// const getItemByName = async (tableName, username) => {
-//     const params = {
-//         TableName: tableName,
-//         Key: {
-//             'username': { S: username } // Update to search by username
-//         }
-//     };
-
-//     try {
-//         const command = new GetItemCommand(params); // Use the correct DynamoDB command
-//         const data = await client.send(command); // Use the instantiated client
-//         return data.Item ? AWS.DynamoDB.Converter.unmarshall(data.Item) : null; // Use DynamoDB Converter to unmarshall data
-//     } catch (error) {
-//         console.error('Error fetching item by username:', error);
-//         throw new Error('Could not fetch item.');
-//     }
-// };
-
-
-// const getItemByName = async (tableName, username) => {
-//     const params = {
-//         TableName: tableName,
-//         Key: {
-//             'username': { S: username } // Ensure the key is defined correctly
-//         }
-//     };
-
-//     try {
-//         const command = new GetItemCommand(params);
-//         const data = await client.send(command);
-//         return data.Item ? AWS.DynamoDB.Converter.unmarshall(data.Item) : null; // Ensure you're using the correct converter
-//     } catch (error) {
-//         console.error('Error fetching item by username:', error);
-//         throw new Error('Could not fetch item.');
-//     }
-// };
-
+// Function to get (Read) username from a table
 //Third Version
 const getItemByName = async (tableName, username) => {
     const params = {
@@ -141,8 +86,6 @@ const getItemByName = async (tableName, username) => {
         throw new Error('Could not fetch item.');
     }
 };
-
-
 
 // Function to update an item in a table
 async function updateItem(tableName, key, updatedAttributes) {

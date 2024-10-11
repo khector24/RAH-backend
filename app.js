@@ -17,9 +17,10 @@ app.use('/managers', managersRoutes);
 app.use('/drivers', driversRoutes);
 
 const { listTables } = require('./dynamoDBOperations');
+const authenticateJWT = require('./middleware/authenticateJWT'); // Importing the middleware
 
 // Route to list all DynamoDB tables
-app.get('/', async (req, res) => {
+app.get('/', authenticateJWT, async (req, res) => {
     try {
         const tables = await listTables();
         res.send(`Tables in DynamoDB: ${tables.join(', ')}`);

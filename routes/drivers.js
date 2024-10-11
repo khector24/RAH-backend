@@ -10,8 +10,10 @@ const {
     scanTable
 } = require('../dynamoDBOperations');
 
+const authenticateJWT = require('../middleware/authenticateJWT'); // Importing the middleware
+
 // Route to get all drivers
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
     try {
         const drivers = await scanTable('Drivers_Table'); // Scan the Drivers_Table
         res.json(drivers); // Send the list of drivers as a JSON response
@@ -22,7 +24,7 @@ router.get('/', async (req, res) => {
 });
 
 // Route to create a new driver
-router.post('/', async (req, res) => {
+router.post('/', authenticateJWT, async (req, res) => {
     const driverData = req.body;
     const driverId = uuidv4();
 
@@ -43,7 +45,7 @@ router.post('/', async (req, res) => {
 });
 
 // Route to get a specific driver by ID
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticateJWT, async (req, res) => {
     const driverId = req.params.id;
     try {
         const driver = await getItem('Drivers_Table', { id: { 'S': driverId } });
@@ -59,7 +61,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Route to edit a driver by ID
-router.put('/:id/edit', async (req, res) => {
+router.put('/:id/edit', authenticateJWT, async (req, res) => {
     const driverId = req.params.id;
     const updatedAttributes = req.body; // Assuming the body contains the updated fields
 
@@ -74,7 +76,7 @@ router.put('/:id/edit', async (req, res) => {
 
 
 // Route to delete a driver by ID
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticateJWT, async (req, res) => {
     const driverId = req.params.id;
 
     try {

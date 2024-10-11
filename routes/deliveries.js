@@ -10,8 +10,10 @@ const {
     scanTable
 } = require('../dynamoDBOperations');
 
+const authenticateJWT = require('../middleware/authenticateJWT');
+
 // Route to get all deliveries
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
     try {
         const deliveries = await scanTable('Deliveries_Table'); // Scan the Deliveries_Table
         res.json(deliveries); // Send the list of deliveries as a JSON response
@@ -22,7 +24,7 @@ router.get('/', async (req, res) => {
 });
 
 // Route to create a new delivery
-router.post('/', async (req, res) => {
+router.post('/', authenticateJWT, async (req, res) => {
     const deliveryData = req.body;
     const deliveryId = uuidv4();
 
@@ -44,7 +46,7 @@ router.post('/', async (req, res) => {
 });
 
 // Route to get a specific delivery by ID
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticateJWT, async (req, res) => {
     const deliveryId = req.params.id;
     try {
         const delivery = await getItem('Deliveries_Table', { id: { 'S': deliveryId } });
@@ -60,7 +62,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Route to edit a delivery by ID
-router.put('/:id/edit', async (req, res) => {
+router.put('/:id/edit', authenticateJWT, async (req, res) => {
     const deliveryId = req.params.id;
     const updatedAttributes = req.body; // Assuming the body contains the updated fields
 
@@ -74,7 +76,7 @@ router.put('/:id/edit', async (req, res) => {
 });
 
 // Route to delete a delivery by ID
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticateJWT, async (req, res) => {
     const deliveryId = req.params.id;
 
     try {
