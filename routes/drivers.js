@@ -24,25 +24,29 @@ router.get('/', authenticateJWT, async (req, res) => {
 });
 
 // Route to create a new driver
-router.post('/', authenticateJWT, async (req, res) => {
-    const driverData = req.body;
-    const driverId = uuidv4();
+router.post('/', [
+    check('phoneNumber')
+        .isMobilePhone('en-US')
+        .withMessage('Please provide a valid mobile phone number.')], authenticateJWT,
+    async (req, res) => {
+        const driverData = req.body;
+        const driverId = uuidv4();
 
-    const newDriver = {
-        id: { S: driverId },
-        firstName: { S: driverData.firstName },
-        lastName: { S: driverData.lastName },
-        phoneNumber: { S: driverData.phoneNumber },
-    };
+        const newDriver = {
+            id: { S: driverId },
+            firstName: { S: driverData.firstName },
+            lastName: { S: driverData.lastName },
+            phoneNumber: { S: driverData.phoneNumber },
+        };
 
-    try {
-        const response = await createItem('Drivers_Table', newDriver);
-        res.json({ message: 'Driver created successfully', response });
-    } catch (error) {
-        console.error('Error creating driver:', error);
-        res.status(500).send('Failed to create driver.');
-    }
-});
+        try {
+            const response = await createItem('Drivers_Table', newDriver);
+            res.json({ message: 'Driver created successfully', response });
+        } catch (error) {
+            console.error('Error creating driver:', error);
+            res.status(500).send('Failed to create driver.');
+        }
+    });
 
 // Route to get a specific driver by ID
 router.get('/:id', authenticateJWT, async (req, res) => {
