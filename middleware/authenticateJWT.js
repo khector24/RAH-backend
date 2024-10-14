@@ -14,6 +14,9 @@ const authenticateJWT = (req, res, next) => {
                 return res.sendStatus(403); // Forbidden
             }
             req.user = user;
+            console.log('User from JWT:', req.user);
+            console.log('Manager ID:', req.user.id);
+
             next();
         });
     } else {

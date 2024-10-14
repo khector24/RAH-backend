@@ -28,29 +28,109 @@ router.get('/', authenticateJWT, async (req, res) => {
 
 // Route to create a new delivery
 router.post('/', [
-    check('phoneNumber')
+    check('customerName').notEmpty().withMessage('Customer name is required.'),
+    check('customerPhoneNumber')
         .isMobilePhone('en-US')
-        .withMessage('Please provide a valid mobile phone number.')],
-    authenticateJWT, async (req, res) => {
-        const deliveryData = req.body;
-        const deliveryId = uuidv4();
+        .withMessage('Please provide a valid mobile phone number.'),
+    check('deliveryAddress').notEmpty().withMessage('Delivery address is required.'),
+    check('deliveryDate').notEmpty().withMessage('Delivery date is required.'),
+    check('timeRange').isIn(['7 AM to 12 PM', '12 PM to 5 PM']).withMessage('Invalid time range.'),
+    check('driverId').notEmpty().withMessage('Driver ID is required.')
+], authenticateJWT, async (req, res) => {
+    console.log('Request Body:', req.body);
 
-        const newDelivery = {
-            id: { S: deliveryId },
-            customerName: { S: deliveryData.customerName },
-            deliveryAddress: { S: deliveryData.deliveryAddress },
-            deliveryDate: { S: deliveryData.deliveryDate },
-            driverId: { S: deliveryData.driverId }
-        };
+    const deliveryData = req.body;
 
-        try {
-            const response = await createItem('Deliveries_Table', newDelivery);
-            res.json({ message: 'Delivery created successfully', response });
-        } catch (error) {
-            console.error('Error creating delivery:', error);
-            res.status(500).send('Failed to create delivery.');
-        }
-    });
+    // Validate incoming data
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    const deliveryId = uuidv4();
+    const createdAt = new Date().toISOString();
+
+    const newDelivery = {
+        id: { S: deliveryId },
+        customerName: { S: deliveryData.customerName },
+        customerPhoneNumber: { S: deliveryData.customerPhoneNumber },
+        customerAddress: { S: deliveryData.deliveryAddress },
+        deliveryDate: { S: deliveryData.deliveryDate },
+        timeRange: { S: deliveryData.timeRange },
+        outForDelivery: { BOOL: false },
+        markedCompleted: { BOOL: false },
+        markedForReview: { BOOL: false },
+        markedForDeletion: { BOOL: false },
+        createdAt: { S: createdAt },
+        deliveryHistory: {
+            L: [
+                {
+                    M: {
+                        action: { S: "created" },
+                        status: { S: "pending" },
+                        manager: { S: req.user.username }, // Assuming req.user has the manager's username
+                        timestamp: { S: createdAt }
+                    }
+                }
+            ]
+        },
+        driverId: { S: deliveryData.driverId },
+        managerId: { S: req.user.id } // Assuming req.user has the manager's ID
+    };
+
+    console.log(newDelivery);
+
+    try {
+        console.log("This is the try cathc and the delivery as a test, ", newDelivery)
+        const response = await createItem('Deliveries_Table', newDelivery);
+        console.log("This is the try cathc and the delivery as a test, ", newDelivery)
+        res.json({ message: 'Delivery created successfully', response });
+    } catch (error) {
+        console.error('Error creating delivery:', error);
+        res.status(500).send('Failed to create delivery.');
+    }
+});
+
+// Add this route in your deliveries.js file
+// router.post('/trial', async (req, res) => {
+//     const deliveryItem = {
+//         id: { S: "delivery-004" },  // Ensure you provide a unique ID
+//         customerName: { S: "John Doe" },
+//         customerPhoneNumber: { S: "9013456728" },
+//         customerAddress: { S: "123 Main St, Anytown, USA" },
+//         deliveryDate: { S: "2024-10-11" },
+//         timeRange: { S: "7 AM to 12 PM" },
+//         outForDelivery: { BOOL: false },
+//         markedCompleted: { BOOL: false },
+//         markedForReview: { BOOL: false },
+//         markedForDeletion: { BOOL: false },
+//         createdAt: { S: new Date().toISOString() },  // Set the current time
+//         deliveryHistory: {
+//             L: [
+//                 {
+//                     M: {
+//                         action: { S: "created" },
+//                         status: { S: "pending" },
+//                         manager: { S: "manager001" },  // Replace with actual manager ID
+//                         timestamp: { S: new Date().toISOString() }
+//                     }
+//                 }
+//             ]
+//         },
+//         driverId: { S: "driver001" },  // Replace with actual driver ID
+//         managerId: { S: "manager001" }  // Replace with actual manager ID
+//     };
+
+//     try {
+//         const response = await createItem('Deliveries_Table', deliveryItem);
+//         res.json({ message: 'Delivery created successfully', response });
+//     } catch (error) {
+//         console.error('Error creating delivery:', error);
+//         res.status(500).send('Failed to create delivery.');
+//     }
+// });
+
+
 
 // Route to get a specific delivery by ID
 router.get('/:id', authenticateJWT, async (req, res) => {
@@ -101,3 +181,108 @@ router.delete('/:id', authenticateJWT, async (req, res) => {
 });
 
 module.exports = router;
+
+
+// // deliveries.js
+
+// const express = require('express');
+// const router = express.Router();
+// const { v4: uuidv4 } = require('uuid');
+// const { check, validationResult } = require('express-validator');
+
+// const {
+//     createItem,
+//     getItem,
+//     updateItem,
+//     deleteItem,
+//     scanTable
+// } = require('../dynamoDBOperations');
+
+// const authenticateJWT = require('../middleware/authenticateJWT');
+
+// // Route to get all deliveries
+// router.get('/', authenticateJWT, async (req, res) => {
+//     try {
+//         const deliveries = await scanTable('Deliveries_Table'); // Scan the Deliveries_Table
+//         res.json(deliveries); // Send the list of deliveries as a JSON response
+//     } catch (error) {
+//         console.error('Error fetching deliveries:', error);
+//         res.status(500).send('Failed to list deliveries.');
+//     }
+// });
+
+// // Route to create a new delivery
+// router.post('/', [
+//     check('phoneNumber')
+//         .isMobilePhone('en-US')
+//         .withMessage('Please provide a valid mobile phone number.')
+// ], authenticateJWT, async (req, res) => {
+//     const deliveryData = req.body;
+//     const deliveryId = uuidv4();
+
+//     const newDelivery = {
+//         id: { S: deliveryId },
+//         customerName: { S: deliveryData.customerName },
+//         deliveryAddress: { S: deliveryData.deliveryAddress },
+//         deliveryDate: { S: deliveryData.deliveryDate },
+//         driverId: { S: deliveryData.driverId }
+//     };
+
+//     try {
+//         const response = await createItem('Deliveries_Table', newDelivery);
+//         res.json({ message: 'Delivery created successfully', response });
+//     } catch (error) {
+//         console.error('Error creating delivery:', error);
+//         res.status(500).send('Failed to create delivery.');
+//     }
+// });
+
+// // Route to get a specific delivery by ID
+// router.get('/:id', authenticateJWT, async (req, res) => {
+//     const deliveryId = req.params.id;
+//     try {
+//         const delivery = await getItem('Deliveries_Table', { id: { 'S': deliveryId } });
+//         if (delivery) {
+//             res.json(delivery);
+//         } else {
+//             res.status(404).send('Delivery not found.');
+//         }
+//     } catch (error) {
+//         console.error('Error fetching delivery:', error);
+//         res.status(500).send('Failed to fetch delivery.');
+//     }
+// });
+
+// // Route to edit a delivery by ID
+// router.put('/:id/edit', [
+//     check('phoneNumber')
+//         .isMobilePhone('en-US')
+//         .withMessage('Please provide a valid mobile phone number.')
+
+// ], authenticateJWT, async (req, res) => {
+//     const deliveryId = req.params.id;
+//     const updatedAttributes = req.body; // Assuming the body contains the updated fields
+
+//     try {
+//         const response = await updateItem('Deliveries_Table', { id: { 'S': deliveryId } }, updatedAttributes);
+//         res.json({ message: 'Delivery updated successfully', response });
+//     } catch (error) {
+//         console.error('Error updating delivery:', error);
+//         res.status(500).send('Failed to update delivery.');
+//     }
+// });
+
+// // Route to delete a delivery by ID
+// router.delete('/:id', authenticateJWT, async (req, res) => {
+//     const deliveryId = req.params.id;
+
+//     try {
+//         const response = await deleteItem('Deliveries_Table', { id: { 'S': deliveryId } });
+//         res.json({ message: 'Delivery deleted successfully', response });
+//     } catch (error) {
+//         console.error('Error deleting delivery:', error);
+//         res.status(500).send('Failed to delete delivery.');
+//     }
+// });
+
+// module.exports = router;

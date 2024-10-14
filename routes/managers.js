@@ -89,6 +89,7 @@ router.post('/', [
 });
 
 // Route for manager login
+// Route for manager login
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
@@ -99,12 +100,23 @@ router.post('/login', async (req, res) => {
 
         if (manager && manager.password) {
             console.log('Manager:', manager);
-            console.log('Password:', manager?.password?.S);
+            console.log('Password:', manager.password); // Access it directly
 
             const match = await bcrypt.compare(password, manager.password);
             if (match) {
                 console.log("Yay Matched!")
-                const token = jwt.sign({ id: manager.id.S, username: manager.username.S }, JWT_SECRET, { expiresIn: '1h' });
+
+                // Access the id and username directly without the .S notation
+                const managerId = manager.id; // Changed
+                const managerUsername = manager.username; // Changed
+
+                const token = jwt.sign({ id: managerId, username: managerUsername }, JWT_SECRET, { expiresIn: '1h' });
+
+                console.log("Manager ID:", managerId);
+                console.log("Manager Username:", managerUsername);
+                console.log("Generated Token:", token);
+                console.log("Decoded Token:", jwt.decode(token)); // This will show you the payload
+
                 return res.json({ token });
             }
         }
@@ -114,6 +126,42 @@ router.post('/login', async (req, res) => {
         res.status(500).send('Failed to log in.');
     }
 });
+
+// router.post('/login', async (req, res) => {
+//     const { username, password } = req.body;
+
+//     console.log('Password from body:', req.body.password)
+
+//     try {
+//         const manager = await getItemByName('Managers_Table', username); // Use the modified getItemByName function
+
+//         if (manager && manager.password) {
+//             console.log('Manager:', manager);
+//             console.log('Password:', manager?.password?.S);
+
+//             const match = await bcrypt.compare(password, manager.password);
+//             if (match) {
+//                 console.log("Yay Matched!")
+//                 const token = jwt.sign({ id: manager.id.S, username: manager.username.S }, JWT_SECRET, { expiresIn: '1h' });
+
+//                 console.log("Manager ID:", manager.id.S);
+//                 console.log("Manager Username:", manager.username.S);
+
+
+//                 console.log("This is the Token id", token.id);
+//                 console.log("This is the Token username", token.username);
+//                 console.log("Generated Token:", token);
+//                 console.log("Decoded Token:", jwt.decode(token)); // This will show you the payload
+
+//                 return res.json({ token });
+//             }
+//         }
+//         res.status(401).send('Invalid credentials');
+//     } catch (error) {
+//         console.error('Error during login:', error);
+//         res.status(500).send('Failed to log in.');
+//     }
+// });
 
 // Route to get a specific manager by ID
 router.get('/:id', authenticateJWT, async (req, res) => {
