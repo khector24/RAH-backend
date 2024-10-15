@@ -75,7 +75,7 @@ router.post('/', [
             ]
         },
         driverId: { S: deliveryData.driverId },
-        managerId: { S: req.user.id } // Assuming req.user has the manager's ID
+        managerId: { S: req.user.id }
     };
 
     console.log(newDelivery);
@@ -115,7 +115,6 @@ router.put('/:id/edit', [
     authenticateJWT,
     async (req, res) => {
         const deliveryId = req.params.id;
-        const updatedAttributes = req.body; // Assuming the body contains the updated fields
 
         try {
             const response = await updateItem('Deliveries_Table', { id: { 'S': deliveryId } }, updatedAttributes);
