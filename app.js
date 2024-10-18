@@ -1,3 +1,4 @@
+// app.js
 require('dotenv').config();
 
 const express = require('express');
@@ -9,6 +10,10 @@ const authRoute = require('./routes/auth')
 const deliveriesRoutes = require('./routes/deliveries');
 const managersRoutes = require('./routes/managers');
 const driversRoutes = require('./routes/drivers');
+
+// Add CORS to Express app
+const cors = require('cors');
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use('/auth', authRoute);
