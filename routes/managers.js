@@ -28,7 +28,7 @@ router.get('/', authenticateJWT, async (req, res) => {
         res.json(managers); // Send the list of managers as a JSON response
     } catch (error) {
         console.error('Error fetching managers:', error);
-        res.status(500).send('Failed to list managers.');
+        res.status(500).send('Failed to list managers...');
     }
 });
 
