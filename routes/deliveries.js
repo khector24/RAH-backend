@@ -34,8 +34,8 @@ router.post('/', [
         .withMessage('Please provide a valid mobile phone number.'),
     check('deliveryAddress').notEmpty().withMessage('Delivery address is required.'),
     check('deliveryDate').notEmpty().withMessage('Delivery date is required.'),
-    check('timeRange').isIn(['7 AM to 12 PM', '12 PM to 5 PM']).withMessage('Invalid time range.'),
-    check('driverId').notEmpty().withMessage('Driver ID is required.')
+    check('timeRange').isIn(['7 AM to 12 PM', '12 PM to 5 PM']).withMessage('Invalid time range.')
+    // check('driverId').notEmpty().withMessage('Driver ID is required.')
 ], authenticateJWT, async (req, res) => {
     console.log('Request Body:', req.body);
 
@@ -44,6 +44,7 @@ router.post('/', [
     // Validate incoming data
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+        console.log('Validation errors:', errors.array());
         return res.status(400).json({ errors: errors.array() });
     }
 
@@ -57,6 +58,7 @@ router.post('/', [
         customerAddress: { S: deliveryData.deliveryAddress },
         deliveryDate: { S: deliveryData.deliveryDate },
         timeRange: { S: deliveryData.timeRange },
+        deliveryNotes: { S: deliveryData.deliveryNotes },
         outForDelivery: { BOOL: false },
         markedCompleted: { BOOL: false },
         markedForReview: { BOOL: false },
@@ -74,7 +76,7 @@ router.post('/', [
                 }
             ]
         },
-        driverId: { S: deliveryData.driverId },
+        driverId: { S: '' },
         managerId: { S: req.user.id }
     };
 
