@@ -117,6 +117,7 @@ router.put('/:id/edit', [
     authenticateJWT,
     async (req, res) => {
         const deliveryId = req.params.id;
+        const updatedAttributes = req.body;
 
         try {
             const response = await updateItem('Deliveries_Table', { id: { 'S': deliveryId } }, updatedAttributes);
