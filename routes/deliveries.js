@@ -77,7 +77,7 @@ router.post('/', [
             ]
         },
         driverId: { S: '' },
-        managerId: { S: req.user.id }
+        managerId: { S: req.user.username }
     };
 
     console.log(newDelivery);
