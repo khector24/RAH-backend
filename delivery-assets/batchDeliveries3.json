@@ -1,0 +1,429 @@
+[
+    {
+        "id": {
+            "S": "f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1"
+        },
+        "createdAt": {
+            "S": "2024-10-25T10:30:00.000Z"
+        },
+        "customerAddress": {
+            "S": "654 Spruce Drive, Kearney, NE"
+        },
+        "customerName": {
+            "S": "Paul King"
+        },
+        "customerPhoneNumber": {
+            "S": "308-678-1234"
+        },
+        "deliveryDate": {
+            "S": "2024-11-03"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager6"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-25T10:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "driverId": {
+            "S": "driver6"
+        },
+        "managerId": {
+            "S": "manager6"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM - 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "g7h8i9j0-k1l2-m3n4-o5p6-q7r8s9t0u1v2"
+        },
+        "createdAt": {
+            "S": "2024-10-26T14:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "987 Willow Street, Grand Island, NE"
+        },
+        "customerName": {
+            "S": "Laura Allen"
+        },
+        "customerPhoneNumber": {
+            "S": "308-345-6789"
+        },
+        "deliveryDate": {
+            "S": "2024-11-05"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager7"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-26T14:00:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "driverId": {
+            "S": "driver7"
+        },
+        "managerId": {
+            "S": "manager7"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "7 AM - 12 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "h8i9j0k1-l2m3-n4o5-p6q7-r8s9t0u1v2w3"
+        },
+        "createdAt": {
+            "S": "2024-10-27T11:30:00.000Z"
+        },
+        "customerAddress": {
+            "S": "321 Cedar Blvd, Columbus, NE"
+        },
+        "customerName": {
+            "S": "Anna Green"
+        },
+        "customerPhoneNumber": {
+            "S": "402-890-1234"
+        },
+        "deliveryDate": {
+            "S": "2024-11-07"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager8"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-27T11:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "driverId": {
+            "S": "driver8"
+        },
+        "managerId": {
+            "S": "manager8"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM - 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4"
+        },
+        "createdAt": {
+            "S": "2024-10-28T13:45:00.000Z"
+        },
+        "customerAddress": {
+            "S": "789 Birchwood Ave, Fremont, NE"
+        },
+        "customerName": {
+            "S": "David Blue"
+        },
+        "customerPhoneNumber": {
+            "S": "402-567-8901"
+        },
+        "deliveryDate": {
+            "S": "2024-11-09"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager9"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-28T13:45:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "driverId": {
+            "S": "driver9"
+        },
+        "managerId": {
+            "S": "manager9"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "7 AM - 12 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "j0k1l2m3-n4o5-p6q7-r8s9-t0u1v2w3x4y5"
+        },
+        "createdAt": {
+            "S": "2024-10-29T14:20:00.000Z"
+        },
+        "customerAddress": {
+            "S": "456 Elmwood Drive, Seward, NE"
+        },
+        "customerName": {
+            "S": "Linda Yellow"
+        },
+        "customerPhoneNumber": {
+            "S": "402-234-5678"
+        },
+        "deliveryDate": {
+            "S": "2024-11-11"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager10"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-29T14:20:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "driverId": {
+            "S": "driver10"
+        },
+        "managerId": {
+            "S": "manager10"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM - 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6"
+        },
+        "createdAt": {
+            "S": "2024-10-30T10:15:00.000Z"
+        },
+        "customerAddress": {
+            "S": "123 Maple Court, York, NE"
+        },
+        "customerName": {
+            "S": "James Orange"
+        },
+        "customerPhoneNumber": {
+            "S": "402-678-9012"
+        },
+        "deliveryDate": {
+            "S": "2024-11-13"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager11"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-30T10:15:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "driverId": {
+            "S": "driver11"
+        },
+        "managerId": {
+            "S": "manager11"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "7 AM - 12 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "l2m3n4o5-p6q7-r8s9-t0u1-v2w3x4y5z6a7"
+        },
+        "createdAt": {
+            "S": "2024-10-31T16:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "321 Oak Avenue, North Platte, NE"
+        },
+        "customerName": {
+            "S": "Karen Pink"
+        },
+        "customerPhoneNumber": {
+            "S": "308-789-0123"
+        },
+        "deliveryDate": {
+            "S": "2024-11-15"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager12"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-31T16:00:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "driverId": {
+            "S": "driver12"
+        },
+        "managerId": {
+            "S": "manager12"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM - 5 PM"
+        }
+    }
+]

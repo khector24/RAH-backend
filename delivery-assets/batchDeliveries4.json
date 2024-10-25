@@ -1,0 +1,1282 @@
+[
+    {
+        "id": {
+            "S": "e8b0e1b2-cc78-4fb8-b79f-0d2f157fb219"
+        },
+        "createdAt": {
+            "S": "2024-10-25T06:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "300 Main St, San Francisco, CA"
+        },
+        "customerName": {
+            "S": "Emily Clark"
+        },
+        "customerPhoneNumber": {
+            "S": "415-555-0198"
+        },
+        "deliveryDate": {
+            "S": "2024-10-25"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager02"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-25T06:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "out for delivery"
+                        },
+                        "manager": {
+                            "S": "manager02"
+                        },
+                        "status": {
+                            "S": "in progress"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-25T08:00:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "Deliver before noon. Please place the package on the front porch."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "7 AM to 12 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "f1c8e1a3-7eaf-431f-92a1-b8c2c827c19e"
+        },
+        "createdAt": {
+            "S": "2024-10-25T07:30:00.000Z"
+        },
+        "customerAddress": {
+            "S": "456 Elm St, Miami, FL"
+        },
+        "customerName": {
+            "S": "Michael Johnson"
+        },
+        "customerPhoneNumber": {
+            "S": "305-555-0123"
+        },
+        "deliveryDate": {
+            "S": "2024-10-30"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager05"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-25T07:30:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "marked for review"
+                        },
+                        "manager": {
+                            "S": "manager05"
+                        },
+                        "status": {
+                            "S": "under review"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-25T09:00:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "This delivery contains fragile items. Handle with care and deliver to the back door."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "7 AM to 12 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "7a1e5678-e0a1-43ed-bc8b-d54fbd3e6a40"
+        },
+        "createdAt": {
+            "S": "2024-10-26T08:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "789 Oak St, Chicago, IL"
+        },
+        "customerName": {
+            "S": "Jessica Taylor"
+        },
+        "customerPhoneNumber": {
+            "S": "312-555-0199"
+        },
+        "deliveryDate": {
+            "S": "2024-11-01"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager01"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-26T08:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "marked for deletion"
+                        },
+                        "manager": {
+                            "S": "manager01"
+                        },
+                        "status": {
+                            "S": "canceled"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-26T09:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "Requires a signature upon delivery. Please call the customer 30 minutes before arrival."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM to 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "c5b2e1c7-3d4b-43f6-b9b8-0d2f157fb430"
+        },
+        "createdAt": {
+            "S": "2024-10-27T10:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "123 Pine St, Seattle, WA"
+        },
+        "customerName": {
+            "S": "Chris White"
+        },
+        "customerPhoneNumber": {
+            "S": "206-555-0145"
+        },
+        "deliveryDate": {
+            "S": "2024-11-02"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager03"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-27T10:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "out for delivery"
+                        },
+                        "manager": {
+                            "S": "manager03"
+                        },
+                        "status": {
+                            "S": "in progress"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-27T11:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "Please leave the package by the side gate. No contact delivery requested."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM to 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "b4a3e6f8-3f8d-46e5-a0d4-cdbf5803b502"
+        },
+        "createdAt": {
+            "S": "2024-10-28T09:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "987 Maple Ave, Denver, CO"
+        },
+        "customerName": {
+            "S": "Sophia Miller"
+        },
+        "customerPhoneNumber": {
+            "S": "720-555-0303"
+        },
+        "deliveryDate": {
+            "S": "2024-11-05"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager04"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-28T09:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "marked for review"
+                        },
+                        "manager": {
+                            "S": "manager04"
+                        },
+                        "status": {
+                            "S": "under review"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-28T10:15:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "Please deliver to the leasing office and ask for Sophia. It's essential the package stays upright."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM to 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "c7f9b65e-bd35-45b5-a6c7-b5f9c2e06d42"
+        },
+        "createdAt": {
+            "S": "2024-10-29T12:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "852 Birch St, Orlando, FL"
+        },
+        "customerName": {
+            "S": "Olivia Martin"
+        },
+        "customerPhoneNumber": {
+            "S": "321-555-0112"
+        },
+        "deliveryDate": {
+            "S": "2024-11-10"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager06"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-29T12:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "out for delivery"
+                        },
+                        "manager": {
+                            "S": "manager06"
+                        },
+                        "status": {
+                            "S": "in progress"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-29T13:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "This is a birthday surprise! Please don't mention the contents during delivery."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "7 AM to 12 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "8e1c774f-3c38-40aa-9c4d-e3be8a530e60"
+        },
+        "createdAt": {
+            "S": "2024-10-30T14:30:00.000Z"
+        },
+        "customerAddress": {
+            "S": "741 Cedar St, Boston, MA"
+        },
+        "customerName": {
+            "S": "Liam Smith"
+        },
+        "customerPhoneNumber": {
+            "S": "617-555-0045"
+        },
+        "deliveryDate": {
+            "S": "2024-11-07"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager07"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-30T14:30:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "marked for deletion"
+                        },
+                        "manager": {
+                            "S": "manager07"
+                        },
+                        "status": {
+                            "S": "canceled"
+                        },
+                        "timestamp": {
+                            "S": "2024-10-30T15:00:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "Delivery window is between 3 PM and 5 PM. Customer is unavailable until 2 PM."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM to 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "d2e4b375-6b6f-4b0f-86c1-6f5b7b59a3fa"
+        },
+        "createdAt": {
+            "S": "2024-11-01T09:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "159 Spruce St, Dallas, TX"
+        },
+        "customerName": {
+            "S": "Noah Wilson"
+        },
+        "customerPhoneNumber": {
+            "S": "214-555-0789"
+        },
+        "deliveryDate": {
+            "S": "2024-11-09"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager08"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-01T09:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "marked for review"
+                        },
+                        "manager": {
+                            "S": "manager08"
+                        },
+                        "status": {
+                            "S": "under review"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-01T10:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "Delivery requires special handling. Please ensure the package is kept upright at all times."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "7 AM to 12 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "8a1e0eb5-c6e1-4b60-bbf8-e5085d2d9d5b"
+        },
+        "createdAt": {
+            "S": "2024-11-02T11:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "1010 Walnut St, Phoenix, AZ"
+        },
+        "customerName": {
+            "S": "Mason Brown"
+        },
+        "customerPhoneNumber": {
+            "S": "602-555-0456"
+        },
+        "deliveryDate": {
+            "S": "2024-11-11"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager09"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-02T11:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "out for delivery"
+                        },
+                        "manager": {
+                            "S": "manager09"
+                        },
+                        "status": {
+                            "S": "in progress"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-02T12:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "Please ring the bell upon arrival. Package is time-sensitive."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM to 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "2d3b67a9-87b1-4e79-b8a4-d32e1eaa6537"
+        },
+        "createdAt": {
+            "S": "2024-11-03T10:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "777 Fir St, Nashville, TN"
+        },
+        "customerName": {
+            "S": "Emma Johnson"
+        },
+        "customerPhoneNumber": {
+            "S": "615-555-0123"
+        },
+        "deliveryDate": {
+            "S": "2024-11-05"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager10"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-03T10:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "marked for review"
+                        },
+                        "manager": {
+                            "S": "manager10"
+                        },
+                        "status": {
+                            "S": "under review"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-03T11:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "The recipient prefers deliveries on weekdays only and is often unavailable on weekends."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "7 AM to 12 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "f1c7a4b2-b5e0-48ef-a4e3-c53dfd299865"
+        },
+        "createdAt": {
+            "S": "2024-11-04T15:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "220 Maple St, Seattle, WA"
+        },
+        "customerName": {
+            "S": "Ava Taylor"
+        },
+        "customerPhoneNumber": {
+            "S": "206-555-0198"
+        },
+        "deliveryDate": {
+            "S": "2024-11-12"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager11"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-04T15:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "out for delivery"
+                        },
+                        "manager": {
+                            "S": "manager11"
+                        },
+                        "status": {
+                            "S": "in progress"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-04T16:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "This delivery contains fragile items; handle with care."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM to 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "9bcf6e2f-2b8b-4a02-beb8-1b3f6d0f02ae"
+        },
+        "createdAt": {
+            "S": "2024-11-05T11:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "333 Elm St, Chicago, IL"
+        },
+        "customerName": {
+            "S": "Sophia Davis"
+        },
+        "customerPhoneNumber": {
+            "S": "312-555-0145"
+        },
+        "deliveryDate": {
+            "S": "2024-11-13"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager12"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-05T11:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "marked for review"
+                        },
+                        "manager": {
+                            "S": "manager12"
+                        },
+                        "status": {
+                            "S": "under review"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-05T12:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "This package contains perishable goods; delivery should be timely."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "7 AM to 12 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "df38e564-8cf1-4f1d-8e9e-255caa07f577"
+        },
+        "createdAt": {
+            "S": "2024-11-06T09:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "456 Pine St, San Francisco, CA"
+        },
+        "customerName": {
+            "S": "Isabella Johnson"
+        },
+        "customerPhoneNumber": {
+            "S": "415-555-0124"
+        },
+        "deliveryDate": {
+            "S": "2024-11-10"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager13"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-06T09:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "out for delivery"
+                        },
+                        "manager": {
+                            "S": "manager13"
+                        },
+                        "status": {
+                            "S": "in progress"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-06T10:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "Package is sensitive to temperature changes; please deliver promptly."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "12 PM to 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "4c5a58ec-bb77-432e-9d0f-dc80efb947c5"
+        },
+        "createdAt": {
+            "S": "2024-11-07T08:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "888 Oak St, Miami, FL"
+        },
+        "customerName": {
+            "S": "Lucas Miller"
+        },
+        "customerPhoneNumber": {
+            "S": "305-555-0168"
+        },
+        "deliveryDate": {
+            "S": "2024-11-12"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager14"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-07T08:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "marked for deletion"
+                        },
+                        "manager": {
+                            "S": "manager14"
+                        },
+                        "status": {
+                            "S": "canceled"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-07T09:00:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "The customer will be at home during the delivery window, which is from 3 PM to 5 PM."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "3 PM to 5 PM"
+        }
+    },
+    {
+        "id": {
+            "S": "9eab2824-53de-4a05-9f6e-9d99bde54207"
+        },
+        "createdAt": {
+            "S": "2024-11-07T15:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "123 Cedar St, Austin, TX"
+        },
+        "customerName": {
+            "S": "Mia Smith"
+        },
+        "customerPhoneNumber": {
+            "S": "512-555-0177"
+        },
+        "deliveryDate": {
+            "S": "2024-11-10"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager15"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-07T15:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "out for delivery"
+                        },
+                        "manager": {
+                            "S": "manager15"
+                        },
+                        "status": {
+                            "S": "in progress"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-07T16:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "The customer prefers early morning deliveries before 9 AM."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "BOOL": false
+        },
+        "timeRange": {
+            "S": "6 AM to 9 AM"
+        }
+    },
+    {
+        "id": {
+            "S": "d6c3eec5-5eec-4b80-bf46-4e6b2a5d5369"
+        },
+        "createdAt": {
+            "S": "2024-11-07T18:00:00.000Z"
+        },
+        "customerAddress": {
+            "S": "789 Birch St, Boston, MA"
+        },
+        "customerName": {
+            "S": "James Brown"
+        },
+        "customerPhoneNumber": {
+            "S": "617-555-0188"
+        },
+        "deliveryDate": {
+            "S": "2024-11-11"
+        },
+        "deliveryHistory": {
+            "L": [
+                {
+                    "M": {
+                        "action": {
+                            "S": "created"
+                        },
+                        "manager": {
+                            "S": "manager16"
+                        },
+                        "status": {
+                            "S": "pending"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-07T18:00:00.000Z"
+                        }
+                    }
+                },
+                {
+                    "M": {
+                        "action": {
+                            "S": "marked for review"
+                        },
+                        "manager": {
+                            "S": "manager16"
+                        },
+                        "status": {
+                            "S": "under review"
+                        },
+                        "timestamp": {
+                            "S": "2024-11-07T19:30:00.000Z"
+                        }
+                    }
+                }
+            ]
+        },
+        "deliveryNotes": {
+            "S": "The recipient is generally available after 5 PM."
+        },
+        "driverId": {
+            "S": ""
+        },
+        "managerId": {
+            "S": "12345678-90ab-cdef-1234-567890abcdef"
+        },
+        "markedCompleted": {
+            "BOOL": false
+        },
+        "markedForDeletion": {
+            "BOOL": false
+        },
+        "markedForReview": {
+            "BOOL": false
+        },
+        "outForDelivery": {
+            "S": "false"
+        },
+        "timeRange": {
+            "S": "5 PM to 9 PM"
+        }
+    }
+]
