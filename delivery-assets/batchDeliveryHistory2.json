@@ -1,0 +1,128 @@
+[
+    {
+        "deliveryId": {
+            "S": "025c5376-79ad-4931-ad89-daa1e587444a"
+        },
+        "action": {
+            "S": "created"
+        },
+        "manager": {
+            "S": "Alice Johnson"
+        },
+        "timestamp": {
+            "S": "2024-10-01T09:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "025c5376-79ad-4931-ad89-daa1e587444a"
+        },
+        "action": {
+            "S": "out for delivery"
+        },
+        "manager": {
+            "S": "Bob Williams"
+        },
+        "timestamp": {
+            "S": "2024-10-02T10:30:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "025c5376-79ad-4931-ad89-daa1e587444a"
+        },
+        "action": {
+            "S": "attempted delivery"
+        },
+        "manager": {
+            "S": "Charlie Brown"
+        },
+        "timestamp": {
+            "S": "2024-10-02T14:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "025c5376-79ad-4931-ad89-daa1e587444a"
+        },
+        "action": {
+            "S": "rescheduled delivery"
+        },
+        "manager": {
+            "S": "Diana Prince"
+        },
+        "timestamp": {
+            "S": "2024-10-03T08:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "025c5376-79ad-4931-ad89-daa1e587444a"
+        },
+        "action": {
+            "S": "out for delivery"
+        },
+        "manager": {
+            "S": "Ethan Hunt"
+        },
+        "timestamp": {
+            "S": "2024-10-03T11:30:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "025c5376-79ad-4931-ad89-daa1e587444a"
+        },
+        "action": {
+            "S": "delivered"
+        },
+        "manager": {
+            "S": "Alice Johnson"
+        },
+        "timestamp": {
+            "S": "2024-10-03T15:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "025c5376-79ad-4931-ad89-daa1e587444a"
+        },
+        "action": {
+            "S": "marked completed"
+        },
+        "manager": {
+            "S": "Bob Williams"
+        },
+        "timestamp": {
+            "S": "2024-10-04T09:15:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "025c5376-79ad-4931-ad89-daa1e587444a"
+        },
+        "action": {
+            "S": "feedback received"
+        },
+        "manager": {
+            "S": "Charlie Brown"
+        },
+        "timestamp": {
+            "S": "2024-10-05T10:45:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "025c5376-79ad-4931-ad89-daa1e587444a"
+        },
+        "action": {
+            "S": "marked for review"
+        },
+        "manager": {
+            "S": "Diana Prince"
+        },
+        "timestamp": {
+            "S": "2024-10-06T12:30:00Z"
+        }
+    }
+]

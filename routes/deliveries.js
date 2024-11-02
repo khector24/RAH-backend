@@ -86,7 +86,16 @@ router.post('/', [
         console.log("This is the try cathc and the delivery as a test, ", newDelivery)
         const response = await createItem('Deliveries_Table', newDelivery);
         console.log("This is the try cathc and the delivery as a test, ", newDelivery)
-        res.json({ message: 'Delivery created successfully', response });
+        console.log('Server response:', response.data);
+
+        const managerId = req.user.username;
+
+        res.json({
+            deliveryId,
+            managerId,
+            message: 'Delivery created successfully',
+            response
+        });
     } catch (error) {
         console.error('Error creating delivery:', error);
         res.status(500).send('Failed to create delivery.');
@@ -138,6 +147,54 @@ router.delete('/:id', authenticateJWT, async (req, res) => {
     } catch (error) {
         console.error('Error deleting delivery:', error);
         res.status(500).send('Failed to delete delivery.');
+    }
+});
+
+// Route to get delivery history for a specific delivery by ID
+router.get('/:id/history', authenticateJWT, async (req, res) => {
+    const deliveryId = req.params.id;
+    try {
+        // Query the Delivery_History table for entries matching the deliveryId
+        const deliveryHistory = await scanTable('Delivery_History'); // Replace this with your query function
+
+        // Filter the delivery history for the specific deliveryId
+        const filteredHistory = deliveryHistory.filter(item => item.deliveryId.S === deliveryId);
+
+        if (filteredHistory.length > 0) {
+            res.json(filteredHistory); // Return all filtered delivery history items
+        } else {
+            res.status(404).send('Delivery history not found for this delivery ID.');
+        }
+    } catch (error) {
+        console.error('Error fetching delivery history:', error);
+        res.status(500).send('Failed to fetch delivery history.');
+    }
+});
+
+
+// Route to add a new entry to delivery history for a specific delivery
+router.post('/history', authenticateJWT, async (req, res) => {
+    const { deliveryId, action, manager } = req.body;
+
+    if (!deliveryId || !action || !manager) {
+        return res.status(400).json({ message: 'Missing required fields' });
+    }
+
+    const timestamp = new Date().toISOString();
+
+    const newHistoryItem = {
+        deliveryId: { S: deliveryId },
+        action: { S: action },
+        timestamp: { S: timestamp },
+        manager: { S: manager }
+    };
+
+    try {
+        const response = await createItem('Delivery_History', newHistoryItem);
+        res.json({ message: 'Delivery history created successfully', response });
+    } catch (error) {
+        console.error('Error creating delivery history:', error);
+        res.status(500).send('Failed to create delivery history.');
     }
 });
 

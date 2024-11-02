@@ -1,0 +1,254 @@
+[
+    {
+        "deliveryId": {
+            "S": "n4o5p6q7-r8s9-t0u1-v2w3-x4y5z6a7b8c9"
+        },
+        "action": {
+            "S": "created"
+        },
+        "manager": {
+            "S": "Alice Smith"
+        },
+        "timestamp": {
+            "S": "2024-10-01T08:30:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "n4o5p6q7-r8s9-t0u1-v2w3-x4y5z6a7b8c9"
+        },
+        "action": {
+            "S": "out for delivery"
+        },
+        "manager": {
+            "S": "Bob Johnson"
+        },
+        "timestamp": {
+            "S": "2024-10-02T09:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "n4o5p6q7-r8s9-t0u1-v2w3-x4y5z6a7b8c9"
+        },
+        "action": {
+            "S": "marked completed"
+        },
+        "manager": {
+            "S": "Alice Smith"
+        },
+        "timestamp": {
+            "S": "2024-10-02T11:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "c5b2e1c7-3d4b-43f6-b9b8-0d2f157fb430"
+        },
+        "action": {
+            "S": "created"
+        },
+        "manager": {
+            "S": "Charlie Brown"
+        },
+        "timestamp": {
+            "S": "2024-10-03T10:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "c5b2e1c7-3d4b-43f6-b9b8-0d2f157fb430"
+        },
+        "action": {
+            "S": "marked for review"
+        },
+        "manager": {
+            "S": "Diana Prince"
+        },
+        "timestamp": {
+            "S": "2024-10-04T12:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "c5b2e1c7-3d4b-43f6-b9b8-0d2f157fb430"
+        },
+        "action": {
+            "S": "restored"
+        },
+        "manager": {
+            "S": "Charlie Brown"
+        },
+        "timestamp": {
+            "S": "2024-10-05T14:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "4dc8c667-5955-491a-bda7-3a339d17753d"
+        },
+        "action": {
+            "S": "created"
+        },
+        "manager": {
+            "S": "Ethan Hunt"
+        },
+        "timestamp": {
+            "S": "2024-10-06T07:45:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "4dc8c667-5955-491a-bda7-3a339d17753d"
+        },
+        "action": {
+            "S": "out for delivery"
+        },
+        "manager": {
+            "S": "Fiona Apple"
+        },
+        "timestamp": {
+            "S": "2024-10-07T09:15:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "4dc8c667-5955-491a-bda7-3a339d17753d"
+        },
+        "action": {
+            "S": "marked for deletion"
+        },
+        "manager": {
+            "S": "Ethan Hunt"
+        },
+        "timestamp": {
+            "S": "2024-10-08T10:30:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9"
+        },
+        "action": {
+            "S": "created"
+        },
+        "manager": {
+            "S": "George Lucas"
+        },
+        "timestamp": {
+            "S": "2024-10-09T11:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9"
+        },
+        "action": {
+            "S": "out for delivery"
+        },
+        "manager": {
+            "S": "Hannah Montana"
+        },
+        "timestamp": {
+            "S": "2024-10-10T12:30:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9"
+        },
+        "action": {
+            "S": "marked completed"
+        },
+        "manager": {
+            "S": "George Lucas"
+        },
+        "timestamp": {
+            "S": "2024-10-10T14:00:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "f1c8e1a3-7eaf-431f-92a1-b8c2c827c19e"
+        },
+        "action": {
+            "S": "created"
+        },
+        "manager": {
+            "S": "Ivy League"
+        },
+        "timestamp": {
+            "S": "2024-10-11T08:15:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "f1c8e1a3-7eaf-431f-92a1-b8c2c827c19e"
+        },
+        "action": {
+            "S": "marked for review"
+        },
+        "manager": {
+            "S": "Jack Sparrow"
+        },
+        "timestamp": {
+            "S": "2024-10-12T09:45:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "f1c8e1a3-7eaf-431f-92a1-b8c2c827c19e"
+        },
+        "action": {
+            "S": "out for delivery"
+        },
+        "manager": {
+            "S": "Ivy League"
+        },
+        "timestamp": {
+            "S": "2024-10-13T10:30:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "9f0a1b2c-3d4e-5f6g-7h8i-9j0k1l2m3n4o"
+        },
+        "action": {
+            "S": "created"
+        },
+        "manager": {
+            "S": "Karen Carpenter"
+        },
+        "timestamp": {
+            "S": "2024-10-14T08:45:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "9f0a1b2c-3d4e-5f6g-7h8i-9j0k1l2m3n4o"
+        },
+        "action": {
+            "S": "out for delivery"
+        },
+        "manager": {
+            "S": "Leonardo DiCaprio"
+        },
+        "timestamp": {
+            "S": "2024-10-15T09:15:00Z"
+        }
+    },
+    {
+        "deliveryId": {
+            "S": "9f0a1b2c-3d4e-5f6g-7h8i-9j0k1l2m3n4o"
+        },
+        "action": {
+            "S": "marked completed"
+        },
+        "manager": {
+            "S": "Karen Carpenter"
+        },
+        "timestamp": {
+            "S": "2024-10-15T11:00:00Z"
+        }
+    }
+]
