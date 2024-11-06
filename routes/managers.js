@@ -110,7 +110,7 @@ router.post('/login', async (req, res) => {
                 const managerId = manager.id; // Changed
                 const managerUsername = manager.username; // Changed
 
-                const token = jwt.sign({ id: managerId, username: managerUsername }, JWT_SECRET, { expiresIn: '1h' });
+                const token = jwt.sign({ id: managerId, username: managerUsername }, JWT_SECRET, { expiresIn: '3h' });
 
                 console.log("Manager ID:", managerId);
                 console.log("Manager Username:", managerUsername);
