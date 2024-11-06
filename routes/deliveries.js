@@ -76,7 +76,7 @@ router.post('/', [
                 }
             ]
         },
-        driverId: { S: '' },
+        driver: { S: '' },
         managerId: { S: req.user.username }
     };
 
