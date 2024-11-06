@@ -64,18 +64,6 @@ router.post('/', [
         markedForReview: { BOOL: false },
         markedForDeletion: { BOOL: false },
         createdAt: { S: createdAt },
-        deliveryHistory: {
-            L: [
-                {
-                    M: {
-                        action: { S: "created" },
-                        status: { S: "pending" },
-                        manager: { S: req.user.username }, // Assuming req.user has the manager's username
-                        timestamp: { S: createdAt }
-                    }
-                }
-            ]
-        },
         driver: { S: '' },
         managerId: { S: req.user.username }
     };
