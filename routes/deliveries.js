@@ -14,6 +14,7 @@ const {
 } = require('../dynamoDBOperations');
 
 const authenticateJWT = require('../middleware/authenticateJWT');
+const { getOneWeekFromNow } = require('../util/utilFunctions');
 
 // Route to get all deliveries
 router.get('/', authenticateJWT, async (req, res) => {
@@ -161,6 +162,7 @@ router.get('/:id/history', authenticateJWT, async (req, res) => {
 
 
 // Route to add a new entry to delivery history for a specific delivery
+// Route to add a new entry to delivery history for a specific delivery
 router.post('/history', authenticateJWT, async (req, res) => {
     const { deliveryId, action, manager } = req.body;
 
@@ -169,12 +171,21 @@ router.post('/history', authenticateJWT, async (req, res) => {
     }
 
     const timestamp = new Date().toISOString();
+    const expirationDate = getOneWeekFromNow();
+
+    console.log('Expiration Date (Unix Timestamp):', expirationDate); // Log the timestamp value to check
+
+    // Ensure expirationDate is a number
+    if (isNaN(expirationDate)) {
+        return res.status(400).json({ message: 'Invalid expirationDate value' });
+    }
 
     const newHistoryItem = {
         deliveryId: { S: deliveryId },
         action: { S: action },
         timestamp: { S: timestamp },
-        manager: { S: manager }
+        manager: { S: manager },
+        expirationDate: { N: expirationDate.toString() } // Convert it explicitly to string
     };
 
     try {
