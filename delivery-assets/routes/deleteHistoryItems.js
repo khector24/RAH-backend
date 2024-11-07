@@ -1,4 +1,4 @@
-const { deleteItem, scanTable } = require('../dynamoDBOperations');
+const { deleteItem, scanTable } = require('../../dynamoDBOperations');
 
 
 async function deleteHistoryItems() {

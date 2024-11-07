@@ -144,7 +144,7 @@ router.get('/:id/history', authenticateJWT, async (req, res) => {
     const deliveryId = req.params.id;
     try {
         // Query the Delivery_History table for entries matching the deliveryId
-        const deliveryHistory = await scanTable('Delivery_History'); // Replace this with your query function
+        const deliveryHistory = await scanTable('Delivery_History');
 
         // Filter the delivery history for the specific deliveryId
         const filteredHistory = deliveryHistory.filter(item => item.deliveryId.S === deliveryId);
@@ -160,8 +160,6 @@ router.get('/:id/history', authenticateJWT, async (req, res) => {
     }
 });
 
-
-// Route to add a new entry to delivery history for a specific delivery
 // Route to add a new entry to delivery history for a specific delivery
 router.post('/history', authenticateJWT, async (req, res) => {
     const { deliveryId, action, manager } = req.body;

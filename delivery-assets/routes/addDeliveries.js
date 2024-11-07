@@ -1,4 +1,4 @@
-const { createItem } = require('../dynamoDBOperations');
+const { createItem } = require('../../dynamoDBOperations');
 const deliveries = require('/Users/kennyhector/Desktop/Web-Dev/RAH-DeliveryScheduler/back-end/delivery-assets/batchDeliveries4.json');
 
 async function addDeliveries() {

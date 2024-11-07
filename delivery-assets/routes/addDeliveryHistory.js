@@ -1,5 +1,5 @@
-const { createItem } = require('../dynamoDBOperations');
-const deliveryHistory = require('/Users/kennyhector/Desktop/Web-Dev/RAH-DeliveryScheduler/back-end/delivery-assets/batchDeliveryHistory2.json');
+const { createItem } = require('../../dynamoDBOperations');
+const deliveryHistory = require('/Users/kennyhector/Desktop/Web-Dev/RAH-DeliveryScheduler/back-end/delivery-assets/batchDeliveryHistory3.json');
 
 async function addDeliveryHistory() {
     console.log(deliveryHistory);
@@ -7,7 +7,7 @@ async function addDeliveryHistory() {
     try {
         for (const historyItem of deliveryHistory) {
             await createItem('Delivery_History', historyItem);
-            // console.log(`Delivery with ID ${history.id} added successfully.`);
+            console.log(`Delivery with ID ${historyItem.id} added successfully.`);
             console.log("Added succesfuffly.");
         }
     } catch (error) {
