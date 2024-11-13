@@ -33,6 +33,9 @@ router.post('/', [
     check('customerPhoneNumber')
         .isMobilePhone('en-US')
         .withMessage('Please provide a valid mobile phone number.'),
+    check('customerEmail')
+        .isEmail()
+        .withMessage('Please provide a valid email.'),
     check('deliveryAddress').notEmpty().withMessage('Delivery address is required.'),
     check('deliveryDate').notEmpty().withMessage('Delivery date is required.'),
     check('timeRange').isIn(['7 AM to 12 PM', '12 PM to 5 PM']).withMessage('Invalid time range.')
@@ -56,6 +59,7 @@ router.post('/', [
         id: { S: deliveryId },
         customerName: { S: deliveryData.customerName },
         customerPhoneNumber: { S: deliveryData.customerPhoneNumber },
+        customerEmail: { S: deliveryData.customerEmail },
         customerAddress: { S: deliveryData.deliveryAddress },
         deliveryDate: { S: deliveryData.deliveryDate },
         timeRange: { S: deliveryData.timeRange },
@@ -112,6 +116,9 @@ router.put('/:id/edit', [
     check('phoneNumber')
         .isMobilePhone('en-US')
         .withMessage('Please provide a valid mobile phone number.')],
+    check('customerEmail')
+        .isEmail()
+        .withMessage('Please provide a valid email.'),
     authenticateJWT,
     async (req, res) => {
         const deliveryId = req.params.id;
