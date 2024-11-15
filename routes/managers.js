@@ -37,6 +37,9 @@ router.post('/', [
     check('phoneNumber')
         .isMobilePhone('en-US')
         .withMessage('Please provide a valid mobile phone number.'),
+    check('customerEmail')
+        .isEmail()
+        .withMessage('Please provide a valid email.'),
     check("password")
         .isStrongPassword([
             {
@@ -74,6 +77,7 @@ router.post('/', [
         id: { S: managerId },
         firstName: { S: managerData.firstName },
         lastName: { S: managerData.lastName },
+        email: { S: managerData.email },
         phoneNumber: { S: managerData.phoneNumber },
         username: { S: username }, // Store the username
         password: { S: hashedPassword }
