@@ -23,6 +23,9 @@ const client = new DynamoDBClient({
     }
 });
 
+console.log('AWS Region:', process.env.AWS_DEFAULT_REGION);
+
+
 // Function to list all tables
 async function listTables() {
     try {
