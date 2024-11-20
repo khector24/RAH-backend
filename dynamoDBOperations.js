@@ -16,11 +16,11 @@ const { unmarshall } = require('@aws-sdk/util-dynamodb');
 
 // Create a reusable DynamoDB client
 const client = new DynamoDBClient({
-    region: process.env.AWS_DEFAULT_REGION,
-    credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-    }
+    region: process.env.AWS_DEFAULT_REGION || 'us-east-1',
+    // credentials: {
+    //     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    // }
 });
 
 console.log('AWS Region:', process.env.AWS_DEFAULT_REGION);
